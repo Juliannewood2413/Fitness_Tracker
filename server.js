@@ -10,6 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
+app.use(logger('dev'));
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true, 
 useFindAndModify: false
 });
@@ -17,6 +19,9 @@ useFindAndModify: false
 //routes
 app.use(require('./routes/api-routes.js'))
 app.use(require('./routes/html-routes.js'))
+
+//models
+const db = require('./models/models')
 
 app.listen(PORT, () =>{
     console.log(`App listening on http://localhost:${PORT}`);
