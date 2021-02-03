@@ -1,3 +1,14 @@
+//fetch workout data from input
+fetch('/api/workouts/range')
+  .then(res => {
+    return res.json();
+  }).then(data => {
+    populateChart(data);
+  })
+
+  // API.getWorkoutsInRange();
+
+
 function generatePalette() {
   const arr = [
     '#003f5c',
@@ -171,6 +182,17 @@ function populateChart(data) {
       },
     },
   });
+}
+
+function duration(data) {
+  let durations = [];
+  data.forEach(workout => {
+    workout.exercises.forEach(exercise => {
+      durations.push(exercise.duration)
+    })
+  });
+
+  return durations;
 }
 
 function calculateTotalWeight(data) {
