@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const express = require('express');
 
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -17,11 +17,13 @@ useFindAndModify: false
 });
 
 //routes
-app.use(require('./routes/api-routes.js'))
-app.use(require('./routes/html-routes.js'))
+// app.use(require('./routes/api-routes.js'))
+// app.use(require('./routes/html-routes.js'))
+require("./routes/api-routes")(app);
+require("./routes/html-routes")(app);
 
 //models
-const db = require('./models/models.js')
+// const db = require('./models/models.js')
 
 app.listen(PORT, () =>{
     console.log(`App listening on http://localhost:${PORT}`);

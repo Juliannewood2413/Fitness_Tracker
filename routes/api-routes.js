@@ -1,11 +1,11 @@
-const express = require('express')
-const db = require('../models/models');
-const router = require('express').Router();
+
+const db = require('../models');
+// const router = require('express').Router();
 
 module.exports = function(app) {
 
 //get last workout
-router.get('/api/workouts', (req,res) => {
+app.get('/api/workouts', (req,res) => {
     db.Workout.find({})
     .then(workout => {
         res.json(workout);
@@ -16,12 +16,12 @@ router.get('/api/workouts', (req,res) => {
 });
 
 //create new workout
-router.post('/api/workouts', (req,res) => {
+app.post('/api/workouts', (req,res) => {
     //add post to workouts code here
 });
 
 //update/add exercise type
-router.put("/api/workouts/:id", ({body, params}, res) => {
+app.put("/api/workouts/:id", ({body, params}, res) => {
     const exerciseId = params.id;
     let addedExercises = [];
 
@@ -42,11 +42,10 @@ router.put("/api/workouts/:id", ({body, params}, res) => {
     }
 });
 
-//workout range
-
-
-
-
-
-
+// workout range
 }
+
+// module.exports = app;
+
+
+
