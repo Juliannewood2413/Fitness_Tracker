@@ -21,7 +21,7 @@ app.use(require('./routes/api-routes.js'))
 app.use(require('./routes/html-routes.js'))
 
 //models
-const db = require('./models/models')
+const db = require('./models/models.js')
 
 app.listen(PORT, () =>{
     console.log(`App listening on http://localhost:${PORT}`);

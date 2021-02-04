@@ -7,16 +7,21 @@ const workout= new Schema({
     //add require/messages
     exercises: [
         {
-            type: {type: String}
+            type: {type: String},
+            trim: true,
+            required: "Please enter the type of exercise"
         },
         {
-            name: {type: String}
+            name: {type: String},
+            trim: true,
+            required: "Please enter the name of the exercise "
         },
         {
-            duration: {type: Number}
+            duration: {type: Number},
+            required: "Please enter the duration of the exercise (in minutes)"
         },
         {
-            weight: {type: Number}
+            weight: {type: Number},
         },
         {
             reps: {type: Number}
