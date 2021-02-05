@@ -17,13 +17,9 @@ useFindAndModify: false
 });
 
 //routes
-// app.use(require('./routes/api-routes.js'))
-// app.use(require('./routes/html-routes.js'))
 require("./routes/api-routes")(app);
 require("./routes/html-routes")(app);
 
-//models
-// const db = require('./models/models.js')
 
 app.listen(PORT, () =>{
     console.log(`App listening on http://localhost:${PORT}`);

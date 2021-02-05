@@ -16,8 +16,14 @@ app.get('/api/workouts', (req,res) => {
 });
 
 //create new workout
-app.post('/api/workouts', (req,res) => {
-    //add post to workouts code here
+app.post('/api/workouts', async (req,res) => {
+  try{
+      const input = await db.Workout.create({ type: 'workout'})
+      res.json(input);
+  }
+  catch(err){
+      console.log("Couldn't add workout at this time", err)
+  }
 });
 
 //update/add exercise type
@@ -42,7 +48,15 @@ app.put("/api/workouts/:id", ({body, params}, res) => {
     }
 });
 
-// workout range
+app.get('/api/workouts/range', (req, res) => {
+    db.Workout.find({})
+    .then(workout => {
+        res.json(workout);
+    })
+    .catch(err =>{
+        res.json(err);
+    })
+})
 }
 
 // module.exports = app;
