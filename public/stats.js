@@ -6,7 +6,7 @@ fetch('/api/workouts/range')
     populateChart(data);
   })
 
-  // API.getWorkoutsInRange();
+  API.getWorkoutsInRange();
 
 
 function generatePalette() {

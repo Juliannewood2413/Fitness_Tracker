@@ -20,27 +20,35 @@ let shouldNavigateAway = false;
 async function initExercise() {
   let workout;
 
-  if (location.pathname.includes("/exercise") && location.search.split("=") [1] === undefined) {
-    console.log('exercise')
-    const newExercise = await API.createWorkout();
-    const exercise = await API.getLastWorkout();
-    if (exercise) {
-      location.search = "?id=" + workout._id;
-    } else {
-      newWorkout.classList.add("")
-    }
-    return console.log(newExercise); 
-  }
-
-  if (location.search.split("=")[1] === undefined) {
-   let workout = await API.createWorkout()
-    console.log(workout)
+  if(location.search.split('=')[1] === undefined) {
+    workout = await API.createWorkout();
+    console.log(workout);
   }
   if (workout) {
-    location.search = "?id=" + workout._id;
-  } else {
-    newWorkout.classList.add("")
+    location.search = '?id=' + workout._id;
   }
+
+  // if (location.pathname.includes("/exercise") && location.search.split("=") [1] === undefined) {
+  //   console.log('exercise')
+  //   const newExercise = await API.createWorkout();
+  //   const exercise = await API.getLastWorkout();
+  //   if (exercise) {
+  //     location.search = "?id=" + workout._id;
+  //   } else {
+  //     newWorkout.classList.add("")
+  //   }
+  //   return console.log(newExercise); 
+  // }
+
+  // if (location.search.split("=")[1] === undefined) {
+  //  let workout = await API.createWorkout()
+  //   console.log(workout)
+  // }
+  // if (workout) {
+  //   location.search = "?id=" + workout._id;
+  // } else {
+  //   newWorkout.classList.add("")
+  // }
 
 }
 
